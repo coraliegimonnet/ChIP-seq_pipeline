@@ -1,0 +1,4 @@
+C8804_H3K4me3_subsample.fastq.gz,C8804_INPUT_subsample.fastq.gz,C8804,control
+TM8663_H3K4me3_subsample.fastq.gz,TM8663_INPUT_subsample.fastq.gz,TM8663,TM
+C8861_H3K4me3_subsample.fastq.gz,C8861_INPUT_subsample.fastq.gz,C8861,control
+TM8671_H3K4me3_subsample.fastq.gz,TM8671_INPUT_subsample.fastq.gz,TM8671,TM
