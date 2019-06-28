@@ -20,7 +20,7 @@ params.treat = "treatment.bed"
 params.script = "scripts"
 params.project = "project"
 params.outdir = "results"
-params.mark = "H3K4me3"
+params.mark = "H3K27me3"
 
 params.sharp = false
 params.help = false
@@ -41,10 +41,10 @@ log.error """\
 			bam : ${params.bam}
 			control : ${params.control}
 			treatment : ${params.treat}
-			scripts : ${params.scripts} 
+			script : ${params.script}
+		optional paramaters : 
 			mark : ${params.mark}
 			project : ${params.project}
-		optional paramaters :
 			sharp : ${params.sharp}
 		Warning : This pipeline assumes all software are on the PATH
 		"""

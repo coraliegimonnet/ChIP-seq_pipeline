@@ -16,7 +16,7 @@ params.genome = "genome.fasta"
 params.reads = "*.fastq.gz"
 params.outdir = "results"
 params.configFile = "configFile.txt"
-params.script = "pepr_settings.pl"
+params.script = "scripts"
 
 /* Optional parameters initialization */ 
 params.notrim = false
@@ -34,7 +34,7 @@ params.genomeSize = false
 fasta = file(params.genome)
 reads = file(params.reads)
 configFile = file(params.configFile)
-perl_script = file(params.script)
+script = file(params.script)
 
 log.error """\
 			ChIP-seq PIPELINE 
@@ -88,6 +88,12 @@ Channel
 		[ chip_sample_id, input_sample_id, analysis_id, experiment ]
 	}
 	.into { file_prepa_pepr ; pepr_para ; epic_para }
+
+Channel
+	.fromPath (params.script)
+	.ifEmpty { exit 1, "Cannot find any scripts for concatenation and union"}
+	.into { script }
+
 
 
 /* 
@@ -261,12 +267,12 @@ if (params.sharp)
 		//publishDir "${params.outdir}", mode : 'copy'
 		input:
 			file configFile from configFile
-			file perl_script from perl_script
+			file script from script
 		output:
 			file "*.txt" into pepr_config
 		script:
 		"""
-			perl $perl_script $configFile ${task.cpus} ${params.windowSize}
+			perl $script/pepr_settings.pl $configFile ${task.cpus} ${params.windowSize}
 		"""
 	}
 	process PePrDetection {
