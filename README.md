@@ -1,5 +1,4 @@
-<img src="logo/boa.png" align="right" width="100" height="34"/>
-<img src="logo/INRA_logo.jpg" align="right" width="300" height="54"/>
+<img src="logo/INRA_logo.jpg" align="right" width="350" height="70"/>
 
 # ChIP-seq Pipeline
 
